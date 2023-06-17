@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomePage</title>
+    <title>Password generator</title>
 </head>
+
+
 <body>
-    <h1>Password generator</h1>
-    <form action="", method="post">
+    <h1>Formularz - Generator hasła</h1>
+    <form action="{% url 'password' %}" method="post">
         <label for="length">Długość hasła:</label>
         <select id="length" name="length">
             <option value="6">6 znaków</option>
@@ -17,15 +21,19 @@
         </select>
         <br>
         <label for="id_big">Uzyj wielkich liter</label>
-        <input type="checkbox" id="id_big">
+        <input type="checkbox" id="id_big" name="big">
         <br>
         <label for="id_numbers">Uzyj cyfr</label>
-        <input type="checkbox" id="id_numbers">
+        <input type="checkbox" id="id_numbers" name="numbers">
         <br>
         <label for="id_specials">Uzyj znaków specjalnych</label>
-        <input type="checkbox" id="id_specials">
+        <input type="checkbox" id="id_specials" name="specials">
         <br>
-        <button type="submit">Generuj hasło</button>
+        {% csrf_token %}
+        <button type="submit">Wygeneruj</button>
     </form>
+
+    <button><a href="{%url 'about'%}"> O nas</a></button>
 </body>
+
 </html>
