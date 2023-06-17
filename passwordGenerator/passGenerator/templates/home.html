@@ -5,8 +5,10 @@
 {% endblock title%}
 
 {% block content%}
+<div class="container">
 <h1>Formularz - Generator hasła</h1>
-<form action="{% url 'password' %}" method="post">
+<form action="{% url 'result' %}" method="post">
+    <div>
     <label for="length">Długość hasła:</label>
     <select id="length" name="length">
         <option value="6">6 znaków</option>
@@ -14,19 +16,25 @@
         <option value="10">10 znaków</option>
         <option value="12">12 znaków</option>
     </select>
-    <br>
+    </div>
+    <div>
     <label for="id_big">Uzyj wielkich liter</label>
     <input type="checkbox" id="id_big" name="big">
-    <br>
+    </div>
+    <div>
     <label for="id_numbers">Uzyj cyfr</label>
     <input type="checkbox" id="id_numbers" name="numbers">
-    <br>
+    </div>
+    <div>
     <label for="id_specials">Uzyj znaków specjalnych</label>
     <input type="checkbox" id="id_specials" name="specials">
-    <br>
+    </div>
     {% csrf_token %}
+    <div>
     <button type="submit">Wygeneruj</button>
+    </div>
 </form>
 
 <button><a href="{%url 'about'%}"> O nas</a></button>
+</div>
 {% endblock content %}

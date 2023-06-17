@@ -25,16 +25,17 @@ def generate_password(length, bigLetters=False, numbers=False, specials=False):
 def home(request):
     return render(request, 'home.html')
 
-def password(request):
+def result(request):
     # print(request.POST.get('big'))
     length = int(request.POST.get('length'))
     big_letters_included = request.POST.get('big')
     numbers_included = request.POST.get('numbers')
     specials_included = request.POST.get('specials')
 
+    text = "Twoje nowe hasło to:"
     password = generate_password(length,big_letters_included, numbers_included,specials_included)
-    return render(request, 'password.html', {'password': password})
+    return render(request, 'result.html', {'password': password, 'text':text})
 
 def about(request):
-    text = "To jest krótki tekst o nas"
+    text = "To jest krótki tekst o aplikacji passGenerator"
     return render(request, 'about.html', {'text': text})

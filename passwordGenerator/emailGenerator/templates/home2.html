@@ -1,0 +1,45 @@
+{% extends 'base2.html'%}
+{% load static %}
+{% block title%}
+Generator email
+{% endblock title%}
+
+{% block content%}
+
+<div class="container">
+<h1>Generator emaila</h1>
+<form action="{% url 'email'%} " method="post">
+    <div>
+    <label for="domain">Wybierz domenę:</label>
+    </div>
+    <div>
+    <select id="domain" name="domain">
+        <option value="wp.pl">Wirtualna Polska</option> />
+        <option value="gmail.com">Gmail</option> />
+        <option value="yahoo.com">Yahoo</option> />
+    </select>
+    </div>
+    <div>
+    <label for="length">Długość email:</label>
+    </div>
+    <div>
+    <select id="length" name="length">
+        <option value="6">6 znaków</option>
+        <option value="8">8 znaków</option>
+        <option value="10">10 znaków</option>
+        <option value="12">12 znaków</option>
+    </select>
+    </div>
+    <div>
+        <label for="number">Czy ma zawierać liczby?</label>
+        <input type="checkbox" name="number" id="number">
+    </div>
+    {% csrf_token %}
+    <div>
+    <button type="submit">Generuj email</button>
+    </div>
+</form>
+<div>
+<button><a href="{%url 'about2'%}">About Page</a></button>
+</div>
+{% endblock content %}
