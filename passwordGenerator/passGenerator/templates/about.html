@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-</head>
-<body>
-    <p>{{text}}</p>
-    <button><a href="{%url 'home'%}"> Strona Główna</a></button>
-</body>
-</html>
+{% extends 'base.html'%}
+
+{% block title%}
+About
+{% endblock title%}
+
+{% block content%}
+<p>{{text}}</p>
+<button><a href="{%url 'home'%}"> Strona Główna</a></button>
+{% endblock content %}
